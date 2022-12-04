@@ -78,7 +78,7 @@ module.exports = function (RED) {
       const driverConnectionConfig = eufyConfigNode.getConfig();
 
       /** @type {EufySecurity} */
-      this.driver = new EufySecurity.initialize(driverConnectionConfig, RED.log);
+      this.driver = await EufySecurity.initialize(driverConnectionConfig, RED.log);
 
       // driver events
       this.driver.on("connect", () => {
